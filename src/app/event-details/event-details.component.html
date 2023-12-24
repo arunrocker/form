@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-column mx-5 my-5">
+            <div class="mb-2">
+            <label for="eventType">Event Type</label><br> <br>
+            <p-dropdown styleClass="w-100"  [options]="events" [(ngModel)]="selectedEvent" optionLabel="name" [showClear]="false"
+                placeholder="Select a City"></p-dropdown>
+            </div>
+            <div class="mb-2">
+            <label for="eventTopic">Event Topic</label><br> <br>
+            <input type="text" class="w-100" pInputText formControlName="text" />
+            </div>
+            <div class="mb-2">
+            <label for="eventDatw">Event Date</label><br><br>
+            <p-calendar [(ngModel)]="date" styleClass="w-100" [iconDisplay]="'input'" [showIcon]="true"></p-calendar>
+            </div>
+            <div class="mb-2 d-flex flex-row">
+            <label for="time">Start Time</label>
+            <p-dropdown [options]="timings" [style]="{'height':'35px'}" [(ngModel)]="selectedTime" optionLabel="name"
+                [showClear]="false"></p-dropdown>
+            <p-dropdown [options]="periods" [style]="{'height':'35px'}" styleClass="size" [(ngModel)]="selectedPeriod" optionLabel="name"
+                [showClear]="false"></p-dropdown><br><br>
+            </div>
+            <div class="mb-2 d-flex flex-row">
+            <label for="time">End Time</label>
+            <p-dropdown [options]="timings" [style]="{'height':'35px'}" [(ngModel)]="selectedTime" optionLabel="name"
+                [showClear]="false"></p-dropdown>
+            <p-dropdown [options]="periods" [style]="{'height':'35px'}" [(ngModel)]="selectedPeriod" optionLabel="name"
+                [showClear]="false"></p-dropdown>
+            </div>
+        </div>
+        <div class="col d-flex flex-column mx-5 my-5">
+            <div class="mb-2">
+            <label for="meetingType">Meeting Type</label><br><br>
+            <p-dropdown [options]="meetingTypes" styleClass="w-100" [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"
+                placeholder="Select Meeting Type"></p-dropdown>
+            </div>
+            <div class="mb-2">
+            <label for="vendorName">Vendor Name</label><br><br>
+            <input type="text" class="w-100" pInputText formControlName="text" placeholder="Enter Vendor Name" />
+            </div>
+            <div class="mb-2"> 
+                <label for="vendorAgreement">Vendor Agreement</label><br><br>
+            <p-fileUpload mode="basic" styleClass="w-100 color" chooseLabel="Choose" name="demo[]" accept="image/*"></p-fileUpload>
+            </div>
+            <br><br>
+            <div class="ml-4 mb-2 d-flex flex-row  justify-content-end">
+            <div class="mx-2">
+                <button type="button" class="btn btn-outline-danger">Reset</button>
+            </div>
+            <div class="mx-2">
+                <button type="button" class="btn btn-outline-danger">Next</button>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>

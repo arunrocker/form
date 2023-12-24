@@ -1,0 +1,23 @@
+.size{
+    width:10px;
+}
+.row{
+    width: 80vw;
+}
+label{
+    font-weight: 500;
+}
+.container{
+    border: 2px solid red;
+    border-radius: 7px;
+}
+.p-button.p-fileupload-choose {
+    background-color: red;
+}
+.d-flex{
+    gap:10px;
+  }
+button{
+    width: 88px;
+    height: 35px;
+}
