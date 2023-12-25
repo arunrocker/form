@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { DataTransferService } from '../data-transfer.service';
 
 interface UploadEvent {
   originalEvent: Event;
@@ -25,8 +26,8 @@ export class EventDetailsComponent {
   meetingTypes!:any[];
   selectedType!:any;
   eventDetails!:FormGroup;
-  display:boolean = true;
-  constructor(private messageService: MessageService,private route:Router) {
+  display!:boolean;
+  constructor(private messageService: MessageService,private data:DataTransferService) {
       this.eventDetails = new FormGroup({
         selectedEvent : new FormControl(''),
         eventTopic : new FormControl(''),
@@ -69,8 +70,9 @@ export class EventDetailsComponent {
       this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
   }
   submit(data:any){
-    console.log(data.value);
-    this.display = false;
+    this.data.formData.push(data.value);
+    console.log(this.data.formData);
     
+    this.data.notifySiblingMethod();
   }
 }
