@@ -11,12 +11,19 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import { StepperComponent } from './stepper/stepper.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { SpeakerDetails1Component } from './speaker-details1/speaker-details1.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    StepperComponent,
+    SpeakerDetails1Component
   ],
   imports: [
     BrowserModule,
@@ -28,9 +35,12 @@ import { ToastModule } from 'primeng/toast';
     InputTextModule,
     CalendarModule,
     FileUploadModule,
-    ToastModule
+    ToastModule,
+    CdkStepperModule,
+    RadioButtonModule
     
   ],
+  exports:[CdkStepperModule],
   providers: [],
   bootstrap: [AppComponent]
 })

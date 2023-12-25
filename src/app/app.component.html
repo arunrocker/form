@@ -1,3 +1,14 @@
-<div class="center">
-<app-event-details></app-event-details>
-</div>
+<div class="container">
+    <div class="row">
+      <h2 class="text-center mt-4">Angular Stepper Tutorials</h2>
+      <div class="col-md-9 mx-auto">
+        <app-stepper [linearModeSelected]="false" #appStepper>
+          <cdk-step [label]="'Event Details'"> 
+            <app-event-details></app-event-details>
+          </cdk-step>
+          <cdk-step [label]="'Contact Details'">
+          </cdk-step>
+        </app-stepper>
+      </div>
+    </div>
+  </div>
