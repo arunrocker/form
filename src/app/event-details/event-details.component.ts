@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
 interface UploadEvent {
@@ -23,7 +24,22 @@ export class EventDetailsComponent {
   selectedPeriod:any;
   meetingTypes!:any[];
   selectedType!:any;
-  constructor(private messageService: MessageService) {}
+  eventDetails!:FormGroup;
+  display:boolean = true;
+  constructor(private messageService: MessageService,private route:Router) {
+      this.eventDetails = new FormGroup({
+        selectedEvent : new FormControl(''),
+        eventTopic : new FormControl(''),
+        eventDate : new FormControl(''),
+        fromTime : new FormControl(''),
+        fromPeriod : new FormControl(''),
+        toTime : new FormControl(''),
+        toPeriod : new FormControl(''),
+        selectedType : new FormControl(''),
+        vendorName : new FormControl('')
+        
+      })
+  }
     ngOnInit() {
         this.events = [
             { name: 'New York', code: 'NY' },
@@ -51,5 +67,10 @@ export class EventDetailsComponent {
     }
     onUpload(event: UploadEvent) {
       this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
+  }
+  submit(data:any){
+    console.log(data.value);
+    this.display = false;
+    
   }
 }
