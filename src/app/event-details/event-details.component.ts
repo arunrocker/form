@@ -70,7 +70,7 @@ export class EventDetailsComponent {
       this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
   }
   submit(data:any){
-    this.data.formData.push(data.value);
+    this.data.formData[0] = data.value;
     console.log(this.data.formData);
     
     this.data.notifySiblingMethod();
